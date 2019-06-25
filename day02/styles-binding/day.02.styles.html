@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>
+            Method Pro day 2 | Styles binding, Router  & pet-project 
+        </title>
+        <style>
+            h1 {
+                margin: 0px;
+            }
+            html,body{
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            .box {
+                margin: 0 auto;
+                width: 400px;
+                border-radius: 15px;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                padding: 15px;
+                margin-bottom: 15px;
+                box-shadow: 0px 10px 30px rgba(0,0,0,0.2)
+            }
+            .box.done {
+                 background-color: aquamarine;
+                 border: none;
+                 box-shadow: 0px 10px 30px rgba(aquamarine,0.4)
+            }
+            .btn{
+                background-color: rgba(0, 0, 0, 0.08);
+                padding: 10px 8px;
+                border: none;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='app'>
+            <div class="box" :class="{ 'done': todo.done }" v-for='todo in todo_list'>
+                <h3>{{ todo.title }} </h3>
+                <p>{{ todo.description }}</p>
+                <button class="btn" @click='todo.done = !todo.done'>{{ (todo.done) ? 'Unmark' : 'Mark as Done'  }}</button>
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js">    </script>
+        <script>
+            var a = new Vue({
+                el: '#app',
+                data: {
+                    todo_list: [
+                        {
+                            title: 'Talk about war',
+                            description: 'some secription',
+                            done: false,
+                        },
+                        {
+                            title: 'Talk about another war',
+                            description: 'some another secription',
+                            done: false,
+                        }
+                    ],
+                    box_done: true,
+                }                
+            })
+        </script>
+    </body>
+
+
+
+
+</html>
