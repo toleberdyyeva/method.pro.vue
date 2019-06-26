@@ -36,6 +36,7 @@
     </head>
     <body>
         <div id='app'>
+            <router-link to='/new' >Add new </router-link>
             <div class="box" :class="{ 'done': todo.done }" v-for='todo in todo_list'>
                 <h3>{{ todo.title }} </h3>
                 <p>{{ todo.description }}</p>
@@ -44,7 +45,23 @@
         </div>
         
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js">    </script>
+        <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
         <script>
+            var addComponent = { 
+                template: '<div><input type="text" /><button>Save</button></div>' }
+            var readComponent = { template: '' }
+
+            var router = new VueRouter({
+                routes: [
+                    {
+                        path: '/new', component: addComponent,
+                    },
+                    {
+                        path: '/detail', component: null,
+                    }
+                ]
+            })
+
             var a = new Vue({
                 el: '#app',
                 data: {
@@ -61,7 +78,8 @@
                         }
                     ],
                     box_done: true,
-                }                
+                },
+                router                
             })
         </script>
     </body>
