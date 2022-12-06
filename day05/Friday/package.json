@@ -11,7 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "express": "^4.15.3",
+    "express": "^4.18.2",
     "foxout-sdk": "^1.9.7",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
